@@ -15,9 +15,6 @@ void setup(){
   
   pointPos = PVector.sub(pointTwo, pointOne);
   
-  for(int i = 0; i < lineArray.length; i++){
-    //lineArray[i] = new PVector(width/2, height/2);
-  }
 }
 
 void drawSpeckleLine(PVector pos, float l, float angle, float speckledFactor){
@@ -71,5 +68,5 @@ void draw(){
   
 
   iter += 0.5;
-  saveFrame("out/wave######.png");
+  //saveFrame("out/wave######.png");
 }
