@@ -1,31 +1,20 @@
+int divs = 12;
 
-
-
+ArrayList<domino> dominos = new ArrayList<domino>();
 
 void setup(){
   size(1080, 1080);
   background(0, 0, 0);  
-}
-
-void speckledRectangle(PVector p1, PVector p2, boolean inverse){
-  float squareHeight = p2.y - p1.y;
-  float speckledFactor = map(squareHeight, 0, 100, 0, 1);
-  rectMode(CORNERS);
-  println(speckledFactor);
-  rect(p1.x, p1.y, p2.x, p2.y);
-  
-  randomSeed((long)speckledFactor);
-  for(int y = (int)p1.y; y < p2.y; y++){
-    for(int x = (int)p1.x; x < p2.x; x++){
-      if(random(0, 0.9) <= speckledFactor){
-        set(x, y, color(0, 202, 0));
-      }
-    }
+  noSmooth();
+  for(int i = 0; i < divs; i++){
+    dominos.add(new domino(width/2, ((width/2)-400)+(800/divs)*i, 8*i, 500, 800/divs));
   }
 }
 
 void draw(){
-  speckledRectangle(new PVector(100, 100), new PVector(width-100, 200), false);
-  
-
+  //background(0,0,0);
+  for(domino d : dominos){
+    d.draw();
+  }
+  saveFrame("dominos/f######.png");
 }
